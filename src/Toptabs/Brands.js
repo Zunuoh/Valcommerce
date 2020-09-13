@@ -8,7 +8,7 @@ const BrandList=[{"id":"0", "name":"Adidas"}, {"id":"1", "name":"Nike"}, {"id":"
 const BrandsScreen=()=>{
     const [brands, useBrands] = useState(BrandList);
     return(
-     <View style={{flex:1}}>
+     <View style={{flex:1, backgroundColor:"white"}}>
        {brands && brands.map(brand=>{
            return(
             <View style={{ height:60, flexDirection:"row", alignItems:"center", paddingLeft:20, borderBottomWidth:.5, borderBottomColor:"#d8ded9"}}>
