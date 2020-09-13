@@ -49,17 +49,17 @@ const ItemDetailScreen =({navigation})=>{
                <View style={{width:70, height:70, backgroundColor:"white", borderRadius:10, justifyContent:"center", alignItems:"center", marginRight:10, marginTop:10, borderWidth:1, borderColor:"#D7D7D7"}}>
                    <Text style={{fontSize:20}}>UK 6</Text>
                </View>
-               <View style={{width:70, height:70, backgroundColor:"red", borderRadius:10, justifyContent:"center", alignItems:"center", marginRight:10, marginRight:10, marginTop:10}}>
+               <View style={{width:70, height:70, backgroundColor:"white", borderRadius:10, justifyContent:"center", alignItems:"center", marginRight:10, marginRight:10, marginTop:10}}>
                    <Text style={{fontSize:20}}>UK 6</Text>
                </View>
-               <View style={{width:70, height:70, backgroundColor:"red", borderRadius:10, justifyContent:"center", alignItems:"center", marginRight:10, marginRight:10, marginTop:10}}>
+               <View style={{width:70, height:70, backgroundColor:"white", borderRadius:10, justifyContent:"center", alignItems:"center", marginRight:10, marginRight:10, marginTop:10}}>
                    <Text style={{fontSize:20}}>UK 6</Text>
                </View>
-               <View style={{width:70, height:70, backgroundColor:"red", borderRadius:10, justifyContent:"center", alignItems:"center", marginRight:10, marginRight:10, marginTop:10}}>
+               <View style={{width:70, height:70, backgroundColor:"white", borderRadius:10, justifyContent:"center", alignItems:"center", marginRight:10, marginRight:10, marginTop:10}}>
                    <Text style={{fontSize:20}}>UK 6</Text>
                </View>
 
-               <View style={{width:70, height:70, backgroundColor:"red", borderRadius:10, justifyContent:"center", alignItems:"center", marginRight:10, marginRight:10, marginTop:20}}>
+               <View style={{width:70, height:70, backgroundColor:"white", borderRadius:10, justifyContent:"center", alignItems:"center", marginRight:10, marginRight:10, marginTop:20}}>
                    <Text style={{fontSize:20}}>UK 6</Text>
                </View>
            </View>
