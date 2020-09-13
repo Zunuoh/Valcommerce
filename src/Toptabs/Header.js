@@ -4,8 +4,8 @@ import {Feather} from '@expo/vector-icons';
 
 const HeaderScreen=()=>{
     return(
-    <View>
-        <View style={{paddingTop:50, flexDirection:"row"}}>
+    <View style={{backgroundColor:"white"}}>
+        <View style={{paddingTop:50, paddingLeft:20, paddingBottom:10,flexDirection:"row"}}>
                 <View>
                 <Text style={{fontSize:35, fontWeight:"bold"}}>Shoes</Text>
                 </View>

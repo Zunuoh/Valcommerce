@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, {Fragment} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import ListScreen from './src/ListScreen';
 import ItemDetailScreen from './src/ItemDetailScreen';
-import Popular from './src/Toptabs/Header';
+import Header from './src/Toptabs/Header';
 import Categories from './src/Toptabs/Categories';
 import Brands from './src/Toptabs/Brands';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -15,11 +15,17 @@ const Tab = createMaterialTopTabNavigator();
 
 const MainSectionTab=(props)=>{
   return(
-    <Tab.Navigator>
+    <Fragment>
+        <Header name="Header"/>
+       <Tab.Navigator tabBarOptions={{labelStyle: { fontSize: 20, fontWeight:"400" },
+      indicatorStyle:{backgroundColor:"black", width:20, height:3, marginLeft:25}
+    }}>
       <Tab.Screen name="Popular" component={ListScreen}/>
       <Tab.Screen name="Categories" component={Categories}/>
       <Tab.Screen name="Brands" component={Brands}/>
     </Tab.Navigator>
+    </Fragment>
+   
   )
 }
 export default function App({navigation}) {
