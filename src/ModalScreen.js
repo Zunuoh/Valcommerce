@@ -3,9 +3,9 @@ import {Text, View, Image, Modal} from 'react-native';
 
 const ModalScreen = ({modalState, closeModal})=>{
     return(
-        <Modal visible={modalState} animationType="slide" presentationStyle="pageSheet">
+        <Modal visible={modalState} animationType="slide" presentationStyle="formSheet">
              <View>
-            <Text>jdhh</Text>
+            <Text>jdhhhjsdbjnknkdi</Text>
         </View>
         </Modal>
        

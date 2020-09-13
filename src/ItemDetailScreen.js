@@ -68,11 +68,11 @@ const ItemDetailScreen =({navigation})=>{
               <Text style={{color:"white"}}>Add to cart</Text>
           </TouchableOpacity>
 
-           <View style={{marginTop:50, backgroundColor:"#CBCBCB", height:"8%", borderTopLeftRadius:30, borderTopRightRadius:30}} onPress={openModal} >
+           <TouchableOpacity style={{marginTop:50, backgroundColor:"#CBCBCB", height:"25%", borderTopLeftRadius:30, borderTopRightRadius:30}} onPress={openModal} >
            <View style={{backgroundColor:"black", height:5, width:30, marginLeft:"45%", marginTop:"5%", borderRadius:20}} />
            <ModalScreen closeModal={closeModal} modalState={modalState}/>
            
-           </View>
+           </TouchableOpacity>
 
 
 
