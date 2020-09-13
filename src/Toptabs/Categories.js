@@ -3,7 +3,7 @@ import {View, Text} from 'react-native';
 import {Feather} from '@expo/vector-icons';
 
 const CatList=[{"id":"0", "name":"Sneakers"}, {"id":"1", "name":"Sandals"}, {"id":"2", "name":"Slippers"}, {"id":"3", "name":"Loafers"},{"id":"4", "name":"Stilettos"},
-{"id":"5", "name":"Platforms"}, {"id":"6", "name":"Desert Boots"}, {"id":"7", "name":"Wedge Heels"}, {"id":"4", "name":"Mules"}]
+{"id":"5", "name":"Platforms"}, {"id":"6", "name":"Desert Boots"}, {"id":"7", "name":"Wedge Heels"}, {"id":"8", "name":"Mules"}]
 
 const CategoriesScreen=()=>{
     const [categories, setCategory]=useState(CatList);
