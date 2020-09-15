@@ -1,8 +1,11 @@
  import React, { useReducer, createContext, useMemo, useEffect } from 'react';
 import { View } from 'react-native';
 
-const favShoes=[];
-const cart=[];
+const initialState ={
+    favShoes : [],
+     cart : []
+};
+
 
 export const GlobalContext = createContext(shoesDesc);
 
@@ -22,10 +25,10 @@ export const GlobalContext = createContext(shoesDesc);
         });
       }
 
-      function deletePhoneNumber(fav){
+      function deleteFav(fav){
         dispatch({
           type:'DELETE_FAV',
-          payload:fav
+          payload:id
         })
       }
 
@@ -39,7 +42,7 @@ export const GlobalContext = createContext(shoesDesc);
       function deleteCart(cart){
         dispatch({
           type:'DELETE_CART',
-          payload:cart
+          payload:id
         })
       }
      return(
