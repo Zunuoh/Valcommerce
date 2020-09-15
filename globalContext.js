@@ -46,8 +46,16 @@ export const GlobalContext = createContext(shoesDesc);
         })
       }
      return(
-        <GlobalContext.Provider>
-            {/* value={{}} */}
+        <GlobalContext.Provider
+            value={{
+                favShoes:state.favShoes,
+                cart:state.cart,
+                addtoFav,
+                deleteFav,
+                addtoCart,
+                deleteCart
+            }}>
+                {children}
         </GlobalContext.Provider>
      )
  };
