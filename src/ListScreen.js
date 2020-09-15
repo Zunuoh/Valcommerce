@@ -21,23 +21,20 @@ const ListScreen =({navigation})=>{
             <View style={{marginTop:1, flexDirection:"row"}}>
                 {shoes && shoes.map(shoe=>{
                     return(
-                        <View style={{width:210, height:260, backgroundColor:"turquoise", borderRadius:10, padding:10, marginRight:30}}>
+                        <View style={{width:240, height:260, backgroundColor:"turquoise", borderRadius:10, padding:10, marginRight:30}}>
                   <View style={{flex:4, paddingTop:10, flexDirection:"row"}}>
                       <View>
                       <Text style={{fontSize:20, fontWeight:"bold", color:"white"}}>{shoe.name}</Text>
                       <Text style={{fontSize:20, paddingTop:5, color:"white"}}>{shoe.price}</Text>
                       </View>
-                      <View style={{paddingLeft:70}}>
+                      <View style={{paddingLeft:100}}>
                           <Feather
                           name="heart"
                           size={24}
-                          color="white"/>
-                      </View>
-                      <Feather style={{paddingLeft:10}}
-                          name="plus"
-                          size={26}
                           color="white"
                           onPress={()=>navigation.navigate("ItemDetailScreen")}/>
+                      </View>
+                      
                   </View>
                   <View style={{flex:8, justifyContent:"center", alignItems:"center"}}>
                      <Image source={shoe.picture} style={{width:"90%", height:"90%"}}/>
