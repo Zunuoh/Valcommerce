@@ -25,7 +25,7 @@ export const GlobalContext = createContext(shoesDesc);
         });
       }
 
-      function deleteFav(fav){
+      function deleteFav(id){
         dispatch({
           type:'DELETE_FAV',
           payload:id
@@ -39,7 +39,7 @@ export const GlobalContext = createContext(shoesDesc);
         });
       }
 
-      function deleteCart(cart){
+      function deleteCart(id){
         dispatch({
           type:'DELETE_CART',
           payload:id
