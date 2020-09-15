@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 const initialState ={
     favShoes : [],
-     cart : []
+     cartList : []
 };
 
 
@@ -49,7 +49,7 @@ export const GlobalContext = createContext(shoesDesc);
         <GlobalContext.Provider
             value={{
                 favShoes:state.favShoes,
-                cart:state.cart,
+                cartList:state.cartList,
                 addtoFav,
                 deleteFav,
                 addtoCart,
