@@ -6,6 +6,7 @@ import ItemDetailScreen from './src/ItemDetailScreen';
 import Header from './src/Toptabs/Header';
 import Categories from './src/Toptabs/Categories';
 import Brands from './src/Toptabs/Brands';
+import LikedScreen from './src/LikedScreen';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
@@ -14,10 +15,10 @@ import {GlobalProvider} from './src/contextFolder/globalContext';
 const Stack = createStackNavigator();
 const Tab = createMaterialTopTabNavigator();
 
-const MainSectionTab=(props)=>{
+const MainSectionTab=({navigation})=>{
   return(
     <Fragment>
-        <Header name="Header"/>
+        <Header name="Header" navigation={navigation}/>
        <Tab.Navigator tabBarOptions={{labelStyle: { fontSize: 20, fontWeight:"400" },
       indicatorStyle:{backgroundColor:"black", width:20, height:3, marginLeft:25}
     }}>
@@ -37,6 +38,7 @@ export default function App({navigation}) {
      <Stack.Screen name="MainSectionTab" component={MainSectionTab} options={{headerShown:false}}/>
      <Stack.Screen name="ListScreen" component={ListScreen} options={{headerShown:false}}/>
      <Stack.Screen name="ItemDetailScreen" component={ItemDetailScreen} options={{headerShown:false}}/>
+     <Stack.Screen name="LikedScreen" component={LikedScreen} options={{headerShown:false}}/>
    </Stack.Navigator>
    </NavigationContainer>
    </GlobalProvider> 

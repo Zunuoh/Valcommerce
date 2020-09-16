@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import {View, Text, Image, TouchableWithoutFeedback, useContext} from 'react-native';
-import {Feather} from '@expo/vector-icons';
+import React, { useState, useContext } from 'react';
+import {View, Text, Image, TouchableWithoutFeedback} from 'react-native';
+import {Feather, Ionicons, FontAwesome} from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
 import HeaderScreen from './Toptabs/Header';
 import {GlobalContext} from './contextFolder/globalContext';
 
 
-const ShoeList = [{"id":"0", "name":"Kyrie 6", "price":"$130.00", "size":"39", "desc":"Designed with the comfort of the users feet in mind", "picture":require('../assets/shoe3.jpeg')},{"id":"1", "name":"ZK 2K", "price":"$200.00", "size":"40", "desc":"Designed with the comfort of the users feet in mind", "picture":require('../assets/shoe1.jpeg')},
-{"id":"2", "name":"Kyrie Flytrap", "price":"$148.00", "size":"41", "desc":"Designed with the comfort of the users feet in mind", "picture":require('../assets/shoe2.jpeg')}]
+const ShoeList = [{"id":"0", "name":"Kyrie 6", "price":"$130.00", "size":"39", "desc":"Designed with the comfort of the users feet in mind", "picture":require('../assets/shoe3.jpeg'), "color":"turquoise"},{"id":"1", "name":"ZK 2K", "price":"$200.00", "size":"40", "desc":"Designed with the comfort of the users feet in mind", "picture":require('../assets/shoe1.jpeg'), "color":"#432a76"},
+{"id":"2", "name":"Kyrie Flytrap", "price":"$148.00", "size":"41", "desc":"Designed with the comfort of the users feet in mind", "picture":require('../assets/shoe2.jpeg'), "color":"#8A8D90"}]
 
 const DisList= [{"id":"0", "name":"Adidas", "price":"$50.00", "size":"39", "desc":"Designed with the comfort of the users feet in mind", "picture":require('../assets/shoe4.jpeg')}, {"id":"1", "name":"Adidas", "price":"$50.00", "size":"39", "desc":"Designed with the comfort of the users feet in mind", "picture":require('../assets/shoe5.jpeg')},
 {"id":"2", "name":"Adidas", "price":"$50.00", "size":"39", "desc":"Designed with the comfort of the users feet in mind", "picture":require('../assets/shoe6.jpeg')} ]
@@ -15,14 +15,16 @@ const DisList= [{"id":"0", "name":"Adidas", "price":"$50.00", "size":"39", "desc
 const ListScreen =({navigation})=>{
     const[shoes, setShoes] = useState(ShoeList);
     const[discShoes, setdiscShoes] = useState(DisList);
-    const[likedShoe, setlikedShoe] = useState(null);
+    const[active, setActive] = useState(false);
+    // const[likedShoe, setlikedShoe] = useState(null);
 
-    // const {addtoFav,favShoes} = useContext(GlobalContext);
+    const {addtoFav, deleteFav} = useContext(GlobalContext);
      const handleLikes =(data)=>{
-          setlikedShoe(data);
-          const newData = likedShoe
-          addtoFav(newData)
+          addtoFav(data)
+          setActive(true)
     }
+
+    
 // console.log(likedShoe);
 // console.log(favShoes)
 
@@ -34,19 +36,30 @@ const ListScreen =({navigation})=>{
                 {shoes && shoes.map(shoe=>{
                     return(
                        
-                        <View style={{width:240, height:260, backgroundColor:"turquoise", borderRadius:10, padding:10, marginRight:30}}>
+                        <View style={{width:240, height:260, backgroundColor:shoe.color, borderRadius:10, padding:10, marginRight:30}}>
                   <View style={{flex:4, paddingTop:10, flexDirection:"row"}}>
                       <View>
                       <Text style={{fontSize:20, fontWeight:"bold", color:"white"}}>{shoe.name}</Text>
-                      <Text style={{fontSize:20, paddingTop:5, color:"white"}}>{shoe.price}</Text>
+                      <Text style={{fontSize:20, marginTop:10, color:"white"}}>{shoe.price}</Text>
                       </View>
                       <TouchableWithoutFeedback onPress={() => handleLikes(shoe)}>
-                      <View style={{paddingLeft:100}}>
-                          <Feather
-                          name="heart"
+                          {active ? (
+                              <View style={{paddingLeft:100}}>
+                              <FontAwesome
+                              name="heart"
+                              size={24}
+                              color="white"/>
+                          </View>
+                          ) : (
+                            <View style={{paddingLeft:100}}>
+                          <FontAwesome
+                          name="heart-o"
                           size={24}
                           color="white"/>
                       </View>
+                          )
+                          } 
+                      
                       
                       </TouchableWithoutFeedback>
                       

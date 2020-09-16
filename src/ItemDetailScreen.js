@@ -3,6 +3,7 @@ import {View, Text, Image} from 'react-native';
 import {Feather} from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import ModalScreen from '../src/ModalScreen';
+import {GlobalContext} from '../src/contextFolder/globalContext';
 
 const ItemDetailScreen =({navigation})=>{
     const[modalState, setModalState] = useState(false);
@@ -14,6 +15,14 @@ const ItemDetailScreen =({navigation})=>{
     const closeModal = ()=>{
         setModalState(false)
     }
+
+    const {addtoCart, deleteCart} = useContext(GlobalContext);
+
+    const handleCart =(data)=>{
+        addtoCart(data)
+        // setActive(true)
+  }
+
     return(
         <View style={{flex:1, padding:20}}>
            <View style={{paddingTop:40, flexDirection:"row"}}>
