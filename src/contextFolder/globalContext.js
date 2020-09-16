@@ -1,5 +1,6 @@
  import React, { useReducer, createContext, useMemo, useEffect } from 'react';
 import { View } from 'react-native';
+import AppReducer from '../contextFolder/AppReducer'
 
 const initialState ={
     favShoes : [],

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableWithoutFeedback} from 'react-native';
 import {Feather} from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
 import HeaderScreen from './Toptabs/Header';
@@ -13,7 +13,14 @@ const DisList= [{"id":"0", "name":"Adidas", "price":"$50.00", "size":"39", "desc
 
 const ListScreen =({navigation})=>{
     const[shoes, setShoes] = useState(ShoeList);
-    const[discShoes, setdiscShoes] = useState(DisList)
+    const[discShoes, setdiscShoes] = useState(DisList);
+    const[likedShoe, setlikedShoe] = useState(null);
+
+     const handleLikes =(data)=>{
+          setlikedShoe(data)
+    }
+console.log(likedShoe);
+
     return(
         <View style={{flex:1, padding:20, backgroundColor:"white"}}>
             <View>
@@ -21,12 +28,14 @@ const ListScreen =({navigation})=>{
             <View style={{marginTop:1, flexDirection:"row"}}>
                 {shoes && shoes.map(shoe=>{
                     return(
+                       
                         <View style={{width:240, height:260, backgroundColor:"turquoise", borderRadius:10, padding:10, marginRight:30}}>
                   <View style={{flex:4, paddingTop:10, flexDirection:"row"}}>
                       <View>
                       <Text style={{fontSize:20, fontWeight:"bold", color:"white"}}>{shoe.name}</Text>
                       <Text style={{fontSize:20, paddingTop:5, color:"white"}}>{shoe.price}</Text>
                       </View>
+                      <TouchableWithoutFeedback onPress={() => handleLikes(shoe)}>
                       <View style={{paddingLeft:100}}>
                           <Feather
                           name="heart"
@@ -34,6 +43,8 @@ const ListScreen =({navigation})=>{
                           color="white"
                           onPress={()=>navigation.navigate("ItemDetailScreen")}/>
                       </View>
+                      
+                      </TouchableWithoutFeedback>
                       
                   </View>
                   <View style={{flex:8, justifyContent:"center", alignItems:"center"}}>
