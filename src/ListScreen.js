@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import {View, Text, Image, TouchableWithoutFeedback} from 'react-native';
+import {View, Text, Image, TouchableWithoutFeedback, useContext} from 'react-native';
 import {Feather} from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
 import HeaderScreen from './Toptabs/Header';
+import {GlobalContext} from './contextFolder/globalContext';
 
 
 const ShoeList = [{"id":"0", "name":"Kyrie 6", "price":"$130.00", "size":"39", "desc":"Designed with the comfort of the users feet in mind", "picture":require('../assets/shoe3.jpeg')},{"id":"1", "name":"ZK 2K", "price":"$200.00", "size":"40", "desc":"Designed with the comfort of the users feet in mind", "picture":require('../assets/shoe1.jpeg')},
@@ -16,10 +17,14 @@ const ListScreen =({navigation})=>{
     const[discShoes, setdiscShoes] = useState(DisList);
     const[likedShoe, setlikedShoe] = useState(null);
 
+    // const {addtoFav,favShoes} = useContext(GlobalContext);
      const handleLikes =(data)=>{
-          setlikedShoe(data)
+          setlikedShoe(data);
+          const newData = likedShoe
+          addtoFav(newData)
     }
-console.log(likedShoe);
+// console.log(likedShoe);
+// console.log(favShoes)
 
     return(
         <View style={{flex:1, padding:20, backgroundColor:"white"}}>
@@ -40,8 +45,7 @@ console.log(likedShoe);
                           <Feather
                           name="heart"
                           size={24}
-                          color="white"
-                          onPress={()=>navigation.navigate("ItemDetailScreen")}/>
+                          color="white"/>
                       </View>
                       
                       </TouchableWithoutFeedback>

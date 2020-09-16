@@ -8,9 +8,9 @@ const initialState ={
 };
 
 
-export const GlobalContext = createContext(shoesDesc);
+export const GlobalContext = createContext(initialState);
 
- export const globalProvider = ({children})=>{
+ export const GlobalProvider = ({children})=>{
     const [state, dispatch] = useReducer(AppReducer, initialState);
     
     // function selectShoe(id){

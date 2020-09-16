@@ -11,7 +11,7 @@ const HeaderScreen=()=>{
                 </View>
                 <View style={{paddingLeft:180}}>
                 <Feather
-                    name="search"
+                    name="bookmark"
                     size={24}
                     color="black"/>
                 </View>

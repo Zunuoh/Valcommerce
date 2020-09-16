@@ -9,6 +9,7 @@ import Brands from './src/Toptabs/Brands';
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {GlobalProvider} from './src/contextFolder/globalContext';
 
 const Stack = createStackNavigator();
 const Tab = createMaterialTopTabNavigator();
@@ -30,6 +31,7 @@ const MainSectionTab=(props)=>{
 }
 export default function App({navigation}) {
   return (
+   <GlobalProvider>
    <NavigationContainer>
    <Stack.Navigator>
      <Stack.Screen name="MainSectionTab" component={MainSectionTab} options={{headerShown:false}}/>
@@ -37,6 +39,8 @@ export default function App({navigation}) {
      <Stack.Screen name="ItemDetailScreen" component={ItemDetailScreen} options={{headerShown:false}}/>
    </Stack.Navigator>
    </NavigationContainer>
+   </GlobalProvider> 
+  
 
   // <ItemDetailScreen/>
   );
