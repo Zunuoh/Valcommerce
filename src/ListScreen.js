@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, Text, Image, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, Image, TouchableWithoutFeedback, TouchableOpacity as TouchableOpacityRN } from 'react-native';
 import { Feather, Ionicons, FontAwesome } from '@expo/vector-icons';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import HeaderScreen from './Toptabs/Header';
@@ -111,13 +111,10 @@ const ListScreen = ({ navigation }) => {
                           </View>
                         )}
                       </TouchableWithoutFeedback> */}
-                      <TouchableOpacity onPress={()=>handleLikes(shoe)}>
-                          <View style={{ paddingLeft: 100 }}>
-                              <FontAwesome
-                              name = "heart"
-                              size ={24}
-                              color="white"/>
-                          </View>
+                      <TouchableOpacity onPress={() => handleLikes(shoe)}>
+                        <View style={{ paddingLeft: 100 }}>
+                          <FontAwesome name="heart" size={24} color="white" />
+                        </View>
                       </TouchableOpacity>
                     </View>
                     <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
@@ -130,7 +127,7 @@ const ListScreen = ({ navigation }) => {
         </ScrollView>
       </View>
 
-      <View style={{ paddingTop: 30, flexDirection: 'row' }}>
+      <View style={{ marginTop: 30, flexDirection: 'row', alignItems: 'center' }}>
         <View>
           <Text style={{ fontSize: 30, fontWeight: 'bold' }}>DISCOVER</Text>
         </View>
@@ -176,29 +173,40 @@ const ListScreen = ({ navigation }) => {
         </ScrollView>
       </View>
 
-      <View>
+      <TouchableOpacityRN
+        style={{
+          position: 'absolute',
+          flexDirection: 'row',
+          borderRadius: 30,
+          height: 55,
+          justifyContent: 'flex-start',
+          alignItems: 'center',
+          backgroundColor: '#1A202C',
+          bottom: 0,
+          right: 0,
+          left: '50%',
+          marginLeft: -50,
+          width: 140,
+          marginBottom: 30,
+        }}
+      >
         <View
           style={{
-            flexDirection: 'row',
-            borderWidth: 1,
-            borderRadius: 30,
-            width: 150,
-            height: 50,
-            marginTop: 30,
-            marginLeft: 90,
+            backgroundColor: '#2D3748',
+            height: 40,
+            width: 40,
+            borderRadius: 40 / 2,
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: 'black',
+            marginLeft: 10,
           }}
         >
           <Feather name="home" size={24} color="white" />
-          <View style={{ paddingLeft: 10 }}>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>Home</Text>
-          </View>
         </View>
-      </View>
-
-      <View></View>
+        <View style={{ paddingLeft: 10 }}>
+          <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>Home</Text>
+        </View>
+      </TouchableOpacityRN>
     </View>
   );
 };
