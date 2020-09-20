@@ -4,6 +4,7 @@ import { Feather, Ionicons, FontAwesome } from '@expo/vector-icons';
 import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import HeaderScreen from './Toptabs/Header';
 import { GlobalContext } from './contextFolder/globalContext';
+import ItemDetailScreen from './ItemDetailScreen';
 
 const ShoeList = [
   {
@@ -12,7 +13,7 @@ const ShoeList = [
     price: '$130.00',
     size: '39',
     desc: 'Designed with the comfort of the users feet in mind',
-    picture: require('../assets/shoe3.jpeg'),
+    picture: require('../assets/yhuo.png'),
     color: 'turquoise',
   },
   {
@@ -21,7 +22,7 @@ const ShoeList = [
     price: '$200.00',
     size: '40',
     desc: 'Designed with the comfort of the users feet in mind',
-    picture: require('../assets/shoe1.jpeg'),
+    picture: require('../assets/yh.png'),
     color: '#432a76',
   },
   {
@@ -68,10 +69,17 @@ const ListScreen = ({ navigation }) => {
   const [active, setActive] = useState(false);
   // const[likedShoe, setlikedShoe] = useState(null);
 
-  const { addtoFav, deleteFav } = useContext(GlobalContext);
+  const { addtoFav, deleteFav, addtoCart, deleteCart } = useContext(GlobalContext);
   const handleLikes = (data) => {
     addtoFav(data);
     setActive(true);
+  };
+
+  const handleCart = (item) => {
+    addtoCart(item);
+    navigation.navigate('ItemDetailScreen', {id:"hi"})
+    setActive(true);
+    console.log(item)
   };
 
   // console.log(likedShoe);
@@ -87,7 +95,7 @@ const ListScreen = ({ navigation }) => {
                 return (
                   <View
                     style={{
-                      width: 240,
+                      width: 200,
                       height: 260,
                       backgroundColor: shoe.color,
                       borderRadius: 10,
@@ -96,7 +104,7 @@ const ListScreen = ({ navigation }) => {
                     }}
                   >
                     <View style={{ flex: 4, paddingTop: 10, flexDirection: 'row' }}>
-                      <View>
+                      <View style={{flex:5}}>
                         <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>{shoe.name}</Text>
                         <Text style={{ fontSize: 20, marginTop: 10, color: 'white' }}>{shoe.price}</Text>
                       </View>
@@ -111,8 +119,8 @@ const ListScreen = ({ navigation }) => {
                           </View>
                         )}
                       </TouchableWithoutFeedback> */}
-                      <TouchableOpacity onPress={() => handleLikes(shoe)}>
-                        <View style={{ paddingLeft: 100 }}>
+                      <TouchableOpacity onPress={() => handleCart(shoe)}>
+                        <View style={{ paddingLeft: 70 }}>
                           <FontAwesome name="heart" size={24} color="white" />
                         </View>
                       </TouchableOpacity>
@@ -173,7 +181,7 @@ const ListScreen = ({ navigation }) => {
         </ScrollView>
       </View>
 
-      <TouchableOpacityRN
+      <TouchableOpacity
         style={{
           position: 'absolute',
           flexDirection: 'row',
@@ -201,12 +209,12 @@ const ListScreen = ({ navigation }) => {
             marginLeft: 10,
           }}
         >
-          <Feather name="home" size={24} color="white" />
+        <Feather name="home" size={24} color="white" />
         </View>
         <View style={{ paddingLeft: 10 }}>
           <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>Home</Text>
         </View>
-      </TouchableOpacityRN>
+      </TouchableOpacity>
     </View>
   );
 };
