@@ -11,14 +11,14 @@ const sizeList = [{"id":"0", "ssize":"UK 6"}, {"id":"1", "ssize":"UK 7"}, {"id":
 
 const ItemDetailScreen = ({ navigation }, route) => {
   const[sizes, useSizes] = useState(sizeList);
-  // const [modalState, setModalState] = useState(false);
-  const [isModalVisible, setModalVisible] = useState(false);
+  const [modalState, setModalState] = useState(false);
+  // const [isModalVisible, setModalVisible] = useState(false);
   const [userChoice, setUserChoice] = useState(null);
 
-  // const {id} = route.params;
-  // const filterDataFunction = (id) =>{
-  //   setUserChoice(contextData?.filter(item => item.id === id)[0]);
-  // }
+  const {id} = route.params;
+  const filterDataFunction = (id) =>{
+    setUserChoice(contextData?.filter(item => item.id === id)[0]);
+  }
 
   // useEffect(()=>{
   //   if(id){
@@ -27,18 +27,18 @@ const ItemDetailScreen = ({ navigation }, route) => {
   // }, [id])
 // console.log(id)
 
-  // const openModal = () => {
-  //   setModalState(true);
-  // };
-
-  const toggleModal = () => {
-    setModalVisible(modalState);
+  const openModal = () => {
+    setModalState(true);
   };
 
-
-  // const closeModal = () => {
-  //   setModalState(false);
+  // const toggleModal = () => {
+  //   setModalVisible(modalState);
   // };
+
+
+  const closeModal = () => {
+    setModalState(false);
+  };
 
   const { addtoCart, deleteCart } = useContext(GlobalContext);
 
@@ -113,8 +113,8 @@ const ItemDetailScreen = ({ navigation }, route) => {
           borderTopLeftRadius: 30,
           borderTopRightRadius: 30,
         }}
-        // onPress={openModal}
-        onPress={toggleModal}
+        onPress={openModal}
+        // onPress={toggleModal}
       >
         <View
           style={{

@@ -15,37 +15,37 @@ import { GlobalProvider } from './src/contextFolder/globalContext';
 const Stack = createStackNavigator();
 const Tab = createMaterialTopTabNavigator();
 
-// const MainSectionTab = ({ navigation }) => {
-//   return (
-//     <Fragment>
-//       <Header name="Header" navigation={navigation} />
-//       <Tab.Navigator
-//         tabBarOptions={{
-//           labelStyle: { fontSize: 20, fontWeight: '400' },
-//           indicatorStyle: { backgroundColor: 'black', width: 20, height: 3, marginLeft: 25 },
-//         }}
-//       >
-//         <Tab.Screen name="Popular" component={ListScreen} />
-//         <Tab.Screen name="Categories" component={Categories} />
-//         <Tab.Screen name="Brands" component={Brands} />
-//       </Tab.Navigator>
-//     </Fragment>
-//   );
-// };
+const MainSectionTab = ({ navigation }) => {
+  return (
+    <Fragment>
+      <Header name="Header" navigation={navigation} />
+      <Tab.Navigator
+        tabBarOptions={{
+          labelStyle: { fontSize: 20, fontWeight: '400' },
+          indicatorStyle: { backgroundColor: 'black', width: 20, height: 3, marginLeft: 25 },
+        }}
+      >
+        <Tab.Screen name="Popular" component={ListScreen} />
+        <Tab.Screen name="Categories" component={Categories} />
+        <Tab.Screen name="Brands" component={Brands} />
+      </Tab.Navigator>
+    </Fragment>
+  );
+};
 export default function App({ navigation }) {
   return (
-    // <GlobalProvider>
-    //   <NavigationContainer>
-    //     <Stack.Navigator>
-    //       <Stack.Screen name="MainSectionTab" component={MainSectionTab} options={{ headerShown: false }} />
-    //       <Stack.Screen name="ListScreen" component={ListScreen} options={{ headerShown: false }} />
-    //       <Stack.Screen name="ItemDetailScreen" component={ItemDetailScreen} options={{ headerShown: false }} />
-    //       <Stack.Screen name="LikedScreen" component={LikedScreen} options={{ headerShown: false }} />
-    //     </Stack.Navigator>
-    //   </NavigationContainer>
-    // </GlobalProvider>
+    <GlobalProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="MainSectionTab" component={MainSectionTab} options={{ headerShown: false }} />
+          <Stack.Screen name="ListScreen" component={ListScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="ItemDetailScreen" component={ItemDetailScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="LikedScreen" component={LikedScreen} options={{ headerShown: false }} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </GlobalProvider>
 
-    <ItemDetailScreen/>
+    // <ItemDetailScreen/>
   );
 }
 

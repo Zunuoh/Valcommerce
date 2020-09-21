@@ -77,7 +77,7 @@ const ListScreen = ({ navigation }) => {
 
   const handleCart = (item) => {
     addtoCart(item);
-    navigation.navigate('ItemDetailScreen', {id:"hi"})
+    navigation.navigate('ItemDetailScreen', {id:item.id})
     setActive(true);
     console.log(item)
   };
