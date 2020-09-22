@@ -13,7 +13,7 @@ const ShoeList = [
     price: '$130.00',
     size: '39',
     desc: 'Designed with the comfort of the users feet in mind',
-    picture: require('../assets/yhuo.png'),
+    picture: require('../assets/ih.png'),
     color: 'turquoise',
   },
   {
@@ -22,7 +22,7 @@ const ShoeList = [
     price: '$200.00',
     size: '40',
     desc: 'Designed with the comfort of the users feet in mind',
-    picture: require('../assets/yh.png'),
+    picture: require('../assets/gh.png'),
     color: '#432a76',
   },
   {
@@ -119,14 +119,14 @@ const ListScreen = ({ navigation }) => {
                           </View>
                         )}
                       </TouchableWithoutFeedback> */}
-                      <TouchableOpacity onPress={() => handleCart(shoe)}>
+                      <TouchableOpacity onPress={() => handleLikes(shoe)}>
                         <View style={{ paddingLeft: 70 }}>
-                          <FontAwesome name="heart" size={24} color="white" />
+                          <FontAwesome name="heart-o" size={24} color="white" />
                         </View>
                       </TouchableOpacity>
                     </View>
                     <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
-                      <Image source={shoe.picture} style={{ width: '90%', height: '90%' }} />
+                      <Image source={shoe.picture} style={{ width: '80%', height: '90%', transform:[{rotate: `340deg`}], marginLeft:10 }} />
                     </View>
                   </View>
                 );
@@ -171,7 +171,9 @@ const ListScreen = ({ navigation }) => {
                       <Text style={{ fontSize: 20, paddingLeft: 10 }}>{discShoe.name}</Text>
                       <View style={{ flexDirection: 'row', paddingTop: 10 }}>
                         <Text style={{ paddingLeft: 10, fontSize: 20 }}>{discShoe.price}</Text>
-                        <Feather style={{ paddingLeft: 55 }} name="heart" size={24} color="black" />
+                        <TouchableOpacity>
+                        <Feather style={{ paddingLeft: 55 }} name="heart" size={24} color="black" onPress={() => handleLikes(discShoe)}/>
+                        </TouchableOpacity>
                       </View>
                     </View>
                   </View>
@@ -183,17 +185,17 @@ const ListScreen = ({ navigation }) => {
 
       <TouchableOpacity
         style={{
-          position: 'absolute',
+          // position: 'absolute',
           flexDirection: 'row',
           borderRadius: 30,
           height: 55,
           justifyContent: 'flex-start',
           alignItems: 'center',
           backgroundColor: '#1A202C',
-          bottom: 0,
+          bottom: -20,
           right: 0,
           left: '50%',
-          marginLeft: -50,
+          marginLeft: 50,
           width: 140,
           marginBottom: 30,
         }}

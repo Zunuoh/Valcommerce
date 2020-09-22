@@ -15,10 +15,10 @@ const ItemDetailScreen = ({ navigation }, route) => {
   // const [isModalVisible, setModalVisible] = useState(false);
   const [userChoice, setUserChoice] = useState(null);
 
-  const {id} = route.params;
-  const filterDataFunction = (id) =>{
-    setUserChoice(contextData?.filter(item => item.id === id)[0]);
-  }
+  // const {id} = route.params;
+  // const filterDataFunction = (id) =>{
+  //   setUserChoice(contextData?.filter(item => item.id === id)[0]);
+  // }
 
   // useEffect(()=>{
   //   if(id){
